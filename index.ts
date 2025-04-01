@@ -22,8 +22,10 @@ server.tool(
     console.log("Received request for guide:", guideLink);
     try {
       const client = new OpenAI();
-      // Convert the guide path to GitHub raw content URL
-      const githubRawUrl = `https://raw.githubusercontent.com/base/web/refs/heads/master/apps/base-docs/docs/pages${guideLink}.mdx`;
+      
+      // Remove the base URL prefix and ensure the path starts correctly
+      const guidePath = guideLink.replace('https://docs.base.org', '');
+      const githubRawUrl = `https://raw.githubusercontent.com/base/web/refs/heads/master/apps/base-docs/docs/pages${guidePath}.mdx`;
       console.log("Fetching from URL:", githubRawUrl);
 
       const response = await fetch(githubRawUrl);
