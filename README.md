@@ -1,6 +1,6 @@
 # Base Docs MCP
 
-This repository is an implementation for Base Docs Model Context Protocol (MCP).
+This repository is an implementation for [Base Docs](https://docs.base.org) Model Context Protocol (MCP).
 
 ## Build the server
 
