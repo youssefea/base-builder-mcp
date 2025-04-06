@@ -46,7 +46,7 @@ To add the MCP server to your project configuration, you need to create a json f
 
 To add the MCP server to your global configuration, you need to create a json file at `\~/.cursor/mcp.json`.
 
-✅ OPENAI Key is optional. It allows the server to create a json file of the guide instead of feeding raw guide text to your agent.
+*✅ OPENAI Key is optional. It allows the server to create a json file of the guide instead of feeding raw guide text to your agent.*
 
 ## Add to Claude Desktop
 
@@ -71,6 +71,8 @@ This config should be added to the following paths:
 
 - macOS: `~/Library/Application Support/Claude/claude_desktop_config.json`
 - Windows: `%APPDATA%\Claude\claude_desktop_config.json`
+
+*✅ OPENAI Key is optional. It allows the server to create a json file of the guide instead of feeding raw guide text to your agent.*
 
 ## Expected Result
 
