@@ -1,24 +1,28 @@
 import OpenAI from "openai";
-import { getStepsListParams, testAgentResponseParams } from "./params.js";
+import { getGuideParams, testAgentResponseParams } from "./params.js";
 import { z } from "zod";
 
-export const getStepsList = async ({ guideLink }: z.infer<typeof getStepsListParams>) => {
-    console.log("Received request for guide:", guideLink);
-    try {
+export const getGuide = async ({
+  guideLink,
+}: z.infer<typeof getGuideParams>) => {
+  console.log("Received request for guide:", guideLink);
+  try {
+    // Remove the base URL prefix and ensure the path starts correctly
+    const guidePath = guideLink.replace("https://docs.base.org", "");
+    const githubRawUrl = `https://raw.githubusercontent.com/base/web/refs/heads/master/apps/base-docs/docs/pages${guidePath}.mdx`;
+    console.log("Fetching from URL:", githubRawUrl);
+
+    const response = await fetch(githubRawUrl);
+    if (!response.ok) {
+      throw new Error(`Failed to fetch guide: ${response.statusText}`);
+    }
+    const guide = await response.text();
+    console.log("Successfully fetched guide content");
+
+    let finalResult = guide;
+
+    if (process.env.OPENAI_API_KEY) {
       const client = new OpenAI();
-      
-      // Remove the base URL prefix and ensure the path starts correctly
-      const guidePath = guideLink.replace('https://docs.base.org', '');
-      const githubRawUrl = `https://raw.githubusercontent.com/base/web/refs/heads/master/apps/base-docs/docs/pages${guidePath}.mdx`;
-      console.log("Fetching from URL:", githubRawUrl);
-
-      const response = await fetch(githubRawUrl);
-      if (!response.ok) {
-        throw new Error(`Failed to fetch guide: ${response.statusText}`);
-      }
-      const guide = await response.text();
-      console.log("Successfully fetched guide content");
-
       // Process the guide content with GPT-4
       console.log("Processing with ChatGPT...");
       const result = await client.responses.create({
@@ -26,36 +30,41 @@ export const getStepsList = async ({ guideLink }: z.infer<typeof getStepsListPar
         input: [
           {
             role: "developer",
-            content: "convert this guide into a structured JSON of actions, including all steps and gotchas:\n\n" + guide,
+            content:
+              "convert this guide into a structured JSON of actions, including all steps and gotchas:\n\n" +
+              guide,
           },
         ],
       });
-      const actions = result.output_text;
+      finalResult = result.output_text;
       console.log("Successfully processed guide content");
-
-      return {
-        content: [
-          {
-            type: "text" as const,
-            text: actions,
-          },
-        ],
-      };
-    } catch (err) {
-      const error = err as Error;
-      console.error("Error processing guide:", error.message);
-      return {
-        content: [
-          {
-            type: "text" as const,
-            text: `Error: ${error.message}`,
-          },
-        ],
-      };
     }
-  }
 
-export const testAgentResponse = async ({ code }: z.infer<typeof testAgentResponseParams>) => {
+    return {
+      content: [
+        {
+          type: "text" as const,
+          text: finalResult,
+        },
+      ],
+    };
+  } catch (err) {
+    const error = err as Error;
+    console.error("Error processing guide:", error.message);
+    return {
+      content: [
+        {
+          type: "text" as const,
+          text: `Error: ${error.message}`,
+        },
+      ],
+    };
+  }
+};
+
+export const testAgentResponse = async ({
+  code,
+}: z.infer<typeof testAgentResponseParams>) => {
   console.log("Received request for code:", code);
   try {
     const client = new OpenAI();
@@ -91,5 +100,4 @@ export const testAgentResponse = async ({ code }: z.infer<typeof testAgentRespon
       ],
     };
   }
-}
-  
+};
