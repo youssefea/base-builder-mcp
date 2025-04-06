@@ -1,6 +1,6 @@
 # Base Docs MCP
 
-This repository is an implementation for Base Docs MCP.
+This repository is an implementation for Base Docs Model Context Protocol (MCP).
 
 ## Build the server
 
@@ -50,7 +50,7 @@ To add the MCP server to your global configuration, you need to create a json fi
 
 ## Add to Claude Desktop
 
-If you want to use Base Docs MCP on your Claude Desktop App, you can add the following config to filesystem as detailed in the Claude [documentation]:
+If you want to use Base Docs MCP on your Claude Desktop App, you can add the following config to filesystem as detailed in the Claude [MCP documentation](https://modelcontextprotocol.io/quickstart/user):
 
 ```json
 {
