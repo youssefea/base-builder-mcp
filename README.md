@@ -1,4 +1,4 @@
-# Base Docs MCP
+# Base Builder MCP - Alpha Release
 
 This repository is an implementation for [Base Docs](https://docs.base.org) Model Context Protocol (MCP).
 
@@ -60,7 +60,7 @@ Add the following to your Cursor rules by going to the command palette (Cmd/Ctrl
     If the user says "I want to build on Base", make frequent use of the BuildOnBase MCP tool from Base-Docs MCP.
   </INSTRUCTION>
   <TOOLS>
-    What is the BuildOnBase tool from Base Docs-MCP?
+    What is the BuildOnBase tool from Base Builder MCP?
     It's a tool which allows you to browse the sidebar of Base Docs and find the relevant guides to Build on Base. If you run this tool and you get an error because the guide is not found, try other guides from the sidebar.
   </TOOLS>
 </MCP_USE_GUIDELINE>
@@ -94,10 +94,10 @@ This config should be added to the following paths:
 
 ## Expected Result
 
-After adding Base Docs MCP to your agent, you can use it by saying "I want to build with base". Using that should trigger a call to the Base Docs MCP server:
+After adding Base Builder MCP to your agent, you can use it by saying "I want to build with base". Using that should trigger a call to the Base Builder MCP server:
 
  ![Cursor Agent](https://i.imgur.com/uSp0vOG.png)
- *Cursor agent calling Base Docs MCP*
+ *Cursor agent calling Base Builder MCP*
 
 ![Claude Agent](https://i.imgur.com/WNdcToq.png)
- *Claude agent calling Base Docs MCP*
+ *Claude agent calling Base Builder MCP*
