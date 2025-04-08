@@ -9,8 +9,8 @@ First, let's build the server:
 - Clone the repo and navigate to the directory:
 
 ```bash
-git clone https://github.com/youssefea/docs-mcp
-cd docs-mcp
+git clone https://github.com/youssefea/base-builder-mcp
+cd base-builder-mcp
 ```
 
 - Install the dependencies and build the server:
@@ -29,9 +29,9 @@ To add this MCP to your Cursor agent, **make sure your server is built** then ad
 ```json
 {
     "mcpServers": {
-      "docs-mcp": {
+      "base-builder-mcp": {
         "command": "node",
-        "args": ["/PATH_WHERE_REPO_IS_CLONED/docs-mcp/build/index.js"],
+        "args": ["/PATH_WHERE_REPO_IS_CLONED/base-builder-mcp/build/index.js"],
         "env": {
           "OPENAI_API_KEY": "XXXXXX" //OPENAI KEY IS OPTIONAL
         },
@@ -73,9 +73,9 @@ If you want to use Base Docs MCP on your Claude Desktop App, make sure your serv
 ```json
 {
     "mcpServers": {
-      "docs-mcp": {
+      "base-builder-mcp": {
         "command": "node",
-        "args": ["/PATH_WHERE_REPO_IS_CLONED/docs-mcp/build/index.js"],
+        "args": ["/PATH_WHERE_REPO_IS_CLONED/base-builder-mcp/build/index.js"],
         "env": {
           "OPENAI_API_KEY": "XXXX" //OPENAI KEY IS OPTIONAL
         },
