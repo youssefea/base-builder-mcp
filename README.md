@@ -13,7 +13,7 @@ git clone https://github.com/youssefea/docs-mcp
 cd docs-mcp
 ```
 
-- Install the dependencies and buid the server:
+- Install the dependencies and build the server:
 
 ```bash
 npm install
