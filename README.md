@@ -22,7 +22,7 @@ npx tsc
 
 ## Add to Cursor agent
 
-### Steps
+### Build and Configure
 
 To add this MCP to your Cursor agent, **make sure your server is built** then add the following config to your project as shown in the cursor [documentation](https://docs.cursor.com/context/model-context-protocol):
 
@@ -47,6 +47,22 @@ To add the MCP server to your project configuration, you need to create a json f
 To add the MCP server to your global configuration, you need to create a json file at `\~/.cursor/mcp.json`.
 
 *✅ OPENAI Key is optional. It allows the server to create a json file of the guide instead of feeding raw guide text to your agent.*
+
+### Add to Cursor Rules
+
+Add the following to your Cursor rules by going to the command palette (Cmd/Ctrl + Shift + P) and selecting > Cursor Settings > Rules:
+
+```js
+<MCP_USE_GUIDELINE>
+  <INSTRUCTION>
+    If the user says "I want to build on Base", make frequent use of the BuildOnBase MCP tool from Base-Docs MCP.
+  </INSTRUCTION>
+  <TOOLS>
+    What is the BuildOnBase tool from Base Docs-MCP?
+    It's a tool which allows you to browse the sidebar of Base Docs and find the relevant guides to Build on Base. If you run this tool and you get an error because the guide is not found, try other guides from the sidebar.
+  </TOOLS>
+</MCP_USE_GUIDELINE>
+```
 
 ## Add to Claude Desktop
 
