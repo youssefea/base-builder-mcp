@@ -24,7 +24,7 @@ npx tsc
 
 ### Steps
 
-To add this MCP to your Cursor agent, **make your server is built** then add the following config to your project as shown in the cursor [documentation](https://docs.cursor.com/context/model-context-protocol):
+To add this MCP to your Cursor agent, **make sure your server is built** then add the following config to your project as shown in the cursor [documentation](https://docs.cursor.com/context/model-context-protocol):
 
 ```json
 {
@@ -50,7 +50,7 @@ To add the MCP server to your global configuration, you need to create a json fi
 
 ## Add to Claude Desktop
 
-If you want to use Base Docs MCP on your Claude Desktop App, you can add the following config to filesystem as detailed in the Claude [MCP documentation](https://modelcontextprotocol.io/quickstart/user):
+If you want to use Base Docs MCP on your Claude Desktop App, make sure your server is built, then you can add the following config to filesystem as detailed in the Claude [MCP documentation](https://modelcontextprotocol.io/quickstart/user):
 
 ```json
 {
