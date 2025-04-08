@@ -42,6 +42,8 @@ To add this MCP to your Cursor agent, **make sure your server is built** then ad
   }
 ```
 
+⚠️ **MAKE SURE TO UPDATE `PATH_WHERE_REPO_IS_CLONED` ABOVE TO THE CORRECT PATH OF YOUR CLONED REPO DIRECTORY** ⚠️
+
 To add the MCP server to your project configuration, you need to create a json file at `.cursor/mcp.json`.
 
 To add the MCP server to your global configuration, you need to create a json file at `\~/.cursor/mcp.json`.
