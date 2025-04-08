@@ -1,6 +1,8 @@
 # Base Builder MCP - Alpha Release
 
-This repository is an implementation for [Base Docs](https://docs.base.org) Model Context Protocol (MCP).
+This repository is an MCP server destined for Base Builders.
+
+In this alpha release, the server contains an implementation of [Base Docs](https://docs.base.org) adapted for Model Context Protocol (MCP).
 
 ## Build the server
 
@@ -33,7 +35,7 @@ To add this MCP to your Cursor agent, **make sure your server is built** then ad
         "command": "node",
         "args": ["/PATH_WHERE_REPO_IS_CLONED/base-builder-mcp/build/index.js"],
         "env": {
-          "OPENAI_API_KEY": "XXXXXX" //OPENAI KEY IS OPTIONAL
+          "OPENAI_API_KEY": "" //OPENAI KEY IS OPTIONAL BUT RECOMENDED
         },
         "disabled": false,
         "autoApprove": []
@@ -48,7 +50,7 @@ To add the MCP server to your project configuration, you need to create a json f
 
 To add the MCP server to your global configuration, you need to create a json file at `\~/.cursor/mcp.json`.
 
-*✅ OPENAI Key is optional. It allows the server to create a json file of the guide instead of feeding raw guide text to your agent.*
+*✅ OPENAI Key is optional but recommended. It allows the guide to be reviewed and digested by another LLM to create a json file of the guide instead of feeding raw guide text to your agent.*
 
 ### Add to Cursor Rules
 
@@ -77,7 +79,7 @@ If you want to use Base Docs MCP on your Claude Desktop App, make sure your serv
         "command": "node",
         "args": ["/PATH_WHERE_REPO_IS_CLONED/base-builder-mcp/build/index.js"],
         "env": {
-          "OPENAI_API_KEY": "XXXX" //OPENAI KEY IS OPTIONAL
+          "OPENAI_API_KEY": "" //OPENAI KEY IS OPTIONAL BUT RECOMENDED
         },
         "disabled": false,
         "autoApprove": []
@@ -90,7 +92,7 @@ This config should be added to the following paths:
 - macOS: `~/Library/Application Support/Claude/claude_desktop_config.json`
 - Windows: `%APPDATA%\Claude\claude_desktop_config.json`
 
-*✅ OPENAI Key is optional. It allows the server to create a json file of the guide instead of feeding raw guide text to your agent.*
+*✅ OPENAI Key is optional but recommended. It allows the guide to be reviewed and digested by another LLM to create a json file of the guide instead of feeding raw guide text to your agent.*
 
 ## Expected Result
 
