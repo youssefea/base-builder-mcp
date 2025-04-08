@@ -4,6 +4,8 @@ This repository is an MCP server destined for Base Builders.
 
 In this alpha release, the server contains an implementation of [Base Docs](https://docs.base.org) adapted for Model Context Protocol (MCP).
 
+Follow the instructions below to use it 👇
+
 ## Build the server
 
 First, let's build the server:
