@@ -17,6 +17,12 @@ git clone https://github.com/youssefea/base-builder-mcp
 cd base-builder-mcp
 ```
 
+- (Optional) Add an OpenAI key to your environment variables
+
+```bash
+echo "OPENAI_API_KEY=your_api_key_here" >> .env
+```
+
 - Install the dependencies and build the server:
 
 ```bash
